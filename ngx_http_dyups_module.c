@@ -496,8 +496,8 @@ ngx_http_dyups_init_process(ngx_cycle_t *cycle)
     // ngx_dyups_shctx_t           *sh;
     ngx_http_dyups_main_conf_t  *dmcf;
 
-    // ccf =
-    (ngx_core_conf_t *) ngx_get_conf(cycle->conf_ctx, ngx_core_module);
+    // ccf = (ngx_core_conf_t *)
+    ngx_get_conf(cycle->conf_ctx, ngx_core_module);
 
     dmcf = ngx_http_cycle_get_module_main_conf(ngx_cycle,
                                                ngx_http_dyups_module);
@@ -683,8 +683,7 @@ ngx_http_dyups_reload()
     ngx_dyups_upstream_t  *ups;
 
     sh = ngx_dyups_global_ctx.sh;
-    // shpool =
-    ngx_dyups_global_ctx.shpool;
+    // shpool = ngx_dyups_global_ctx.shpool;
     sentinel = sh->rbtree.sentinel;
     root = sh->rbtree.root;
 
